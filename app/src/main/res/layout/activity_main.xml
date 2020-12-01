@@ -10,13 +10,13 @@
         android:id="@+id/pole"
         android:layout_width="300dp"
         android:layout_height="500dp"
-        android:orientation="vertical"
-        tools:context=".MainActivity"
         android:background="@color/purple_700"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="buttons">
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar"
+        tools:context=".MainActivity"></LinearLayout>
 
     <FrameLayout
         android:id="@+id/buttons"
