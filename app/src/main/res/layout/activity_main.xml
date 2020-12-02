@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:background="?selectableItemBackgroundBorderless"
-            android:text="@string/btn_menu" />
+            android:text="@string/btn_new" />
 
         <Button
             android:id="@+id/button3"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:background="?selectableItemBackgroundBorderless"
-            android:text="@string/btn_menu" />
+            android:text="@string/btn_top" />
 
         <Button
             android:id="@+id/button4"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:background="?selectableItemBackgroundBorderless"
-            android:text="@string/btn_menu" />
+            android:text="@string/btn_fav" />
 
         <Button
             android:id="@+id/button5"
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:background="?selectableItemBackgroundBorderless"
-            android:text="@string/btn_menu" />
+            android:text="@string/btn_sett" />
     </LinearLayout>
 
     <FrameLayout

@@ -14,5 +14,21 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             Toast.makeText(this, "Меню", Toast.LENGTH_SHORT).show()
         }
+
+        button2.setOnClickListener {
+            Toast.makeText(this, "Новинки", Toast.LENGTH_SHORT).show()
+        }
+
+        button3.setOnClickListener {
+            Toast.makeText(this, "Лучшее", Toast.LENGTH_SHORT).show()
+        }
+
+        button4.setOnClickListener {
+            Toast.makeText(this, "Любимые фильмы", Toast.LENGTH_SHORT).show()
+        }
+
+        button5.setOnClickListener {
+            Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+        }
     }
 }

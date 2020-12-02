@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Movie Search</string>
     <string name="disclaimer">movieposters.com/</string>
-    <string name="btn_menu">МЕНЮ</string>
+    <string name="btn_menu">MENU</string>
+    <string name="btn_new">NEW</string>
+    <string name="btn_top">TOP</string>
+    <string name="btn_fav">FAVOURITE</string>
+    <string name="btn_sett">SETTINGS</string>
 </resources>
