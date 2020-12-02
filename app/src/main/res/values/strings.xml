@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Movie Search</string>
-    <string name="disclaimer">https://www.movieposters.com/</string>
+    <string name="disclaimer">movieposters.com/</string>
 </resources>
