@@ -33,31 +33,41 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/btn_menu" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/btn_menu" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/btn_menu" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/btn_menu" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:textColor="@android:color/white"
+            android:background="?selectableItemBackgroundBorderless"
+            android:text="@string/btn_menu" />
     </LinearLayout>
 
     <FrameLayout
