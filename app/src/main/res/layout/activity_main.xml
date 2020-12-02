@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar"
-        tools:context=".MainActivity"></LinearLayout>
+        tools:context=".MainActivity"/>
 
     <FrameLayout
         android:id="@+id/buttons"
