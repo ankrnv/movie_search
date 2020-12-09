@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Movie Search</string>
     <string name="disclaimer">movieposters.com/</string>
-    <string name="btn_menu">MENU</string>
-    <string name="btn_new">NEW</string>
-    <string name="btn_top">TOP</string>
-    <string name="btn_fav">FAVOURITE</string>
+    <string name="menu_settings_title">MENU</string>
+    <string name="menu_watch_later_title">WATCH LATER</string>
+    <string name="menu_selections_title">LISTS</string>
+    <string name="menu_favorites_title">FAVOURITE</string>
     <string name="btn_sett">SETTINGS</string>
+    <string name="page_title">Search it!</string>
 </resources>
