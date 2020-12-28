@@ -3,6 +3,7 @@ package com.example.moviesearch
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -10,6 +11,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //находим наш RV
+        main_recycler.apply {
+            //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс,
+            //оставим его пока пустым, он нам понадобится во второй части задания
+            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
+                override fun click(film: Film, position: Int) {}
+            })
+            //Присваиваем адаптер
+            adapter = filmsAdapter
+            //Присвои layoutmanager
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            //Применяем декоратор для отступов
+            val decorator = TopSpacingItemDecoration(8)
+            addItemDecoration(decorator)
+        }
+        //Кладем нашу БД в RV
+        filmsAdapter.addItems(filmsDataBase)
 
         initNavigation()
     }
@@ -27,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         Film("Chicago", R.drawable.poster_10, "This should be a description"),
         Film("Titanic", R.drawable.poster_11, "This should be a description")
     )
+
+    private lateinit var filmsAdapter: FilmListRecyclerAdapter
+
+
+
 
     private fun initNavigation() {
         topAppBar.setOnMenuItemClickListener {

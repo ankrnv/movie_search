@@ -19,9 +19,12 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : 
 
     //В этом методе будет привязка полей из объекта Film к View из film_item.xml
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        //Проверяем какой у нас ViewHolder
         when (holder) {
             is FilmViewHolder -> {
-
+                //Вызываем метод bind(), который мы создали, и передаем туда объект
+                //из нашей базы данных с указанием позиции
+                holder.bind(items[position])
             }
         }
     }
