@@ -52,7 +52,7 @@
         android:backgroundTint="#E91E63"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|right"
-        app:srcCompat="@drawable/corner_background"
+        app:srcCompat="@drawable/ic_baseline_share_24"
         android:tint="@android:color/white"/>
 
     <androidx.core.widget.NestedScrollView
