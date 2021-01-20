@@ -1,5 +1,6 @@
 package com.example.moviesearch
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,6 +33,23 @@ class DetailsFragment : Fragment() {
                 film.isInFavorites = false
             }
         }
+
+        details_fab.setOnClickListener {
+            //Создаем интент
+            val intent = Intent()
+            //Указываем action с которым он запускается
+            intent.action = Intent.ACTION_SEND
+            //Кладем данные о нашем фильме
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Check out this film: ${film.title} \n\n ${film.description}"
+            )
+            //Указываем MIME тип, чтобы система знала, какое приложения предложить
+            intent.type = "text/plain"
+            //Запускаем наше активити
+            startActivity(Intent.createChooser(intent, "Share To:"))
+        }
+
     }
 
     private fun setFilmsDetails() {
