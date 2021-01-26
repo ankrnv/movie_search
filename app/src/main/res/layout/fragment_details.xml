@@ -23,6 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/details_poster"
                 android:layout_width="match_parent"
