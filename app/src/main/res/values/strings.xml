@@ -5,5 +5,6 @@
     <string name="menu_selections_title">LISTS</string>
     <string name="menu_favorites_title">FAVOURITE</string>
     <string name="page_title">Search it!</string>
+    <string name="menu_home_title_text">HOME</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
