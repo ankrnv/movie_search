@@ -1,11 +1,6 @@
 package com.example.moviesearch
 
 import android.os.Bundle
-import android.transition.Scene
-import android.transition.Slide
-import android.transition.TransitionManager
-import android.transition.TransitionSet
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +13,6 @@ import java.util.*
 
 
 class HomeFragment : Fragment() {
-
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     val filmsDataBase = listOf(
         Film("Star Wars", R.drawable.poster_1, "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."),
