@@ -122,4 +122,35 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
         canvas.restore()
     }
 
+    private fun convertProgressToDegrees(progress: Int): Float = progress * 3.6f
+
+    private fun drawText(canvas: Canvas) {
+        //Форматируем текст, чтобы мы выводили дробное число с одной цифрой после точки
+        val message = String.format("%.1f", progress / 10f)
+        //Получаем ширину и высоту текста, чтобы компенсировать их при отрисовке, чтобы текст был
+        //точно в центре
+        val widths = FloatArray(message.length)
+        digitPaint.getTextWidths(message, widths)
+        var advance = 0f
+        for (width in widths) advance += width
+        //Рисуем наш текст
+        canvas.drawText(message, centerX - advance / 2, centerY  + advance / 4, digitPaint)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        //Рисуем кольцо и задний фон
+        drawRating(canvas)
+        //Рисуем цифры
+        drawText(canvas)
+    }
+
+    fun setProgress(pr: Int) {
+        //Кладем новое значение в наше поле класса
+        progress = pr
+        //Создаем краски с новыми цветами
+        initPaint()
+        //вызываем перерисовку View
+        invalidate()
+    }
+
 }
