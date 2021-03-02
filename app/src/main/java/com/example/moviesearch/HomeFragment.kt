@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyckler() {
-        main_recycler.apply {
+        binding.mainRecycler.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {

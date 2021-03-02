@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.databinding.FragmentFavoritesBinding
 import kotlinx.android.synthetic.main.fragment_favorites.*
 
+
 class FavoritesFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentFavoritesBinding
