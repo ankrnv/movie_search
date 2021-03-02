@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.moviesearch.databinding.FragmentSelectionsBinding
-import kotlinx.android.synthetic.main.fragment_selections.*
 
 class SelectionsFragment : Fragment() {
     private lateinit var binding: FragmentSelectionsBinding
@@ -21,6 +20,6 @@ class SelectionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(selections_fragment_root, requireActivity(), 4)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.root, requireActivity(), 4)
     }
 }
