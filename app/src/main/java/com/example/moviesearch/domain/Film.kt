@@ -1,4 +1,4 @@
-package com.example.moviesearch
+package com.example.moviesearch.domain
 
 import android.os.Parcel
 import android.os.Parcelable

@@ -1,4 +1,4 @@
-package com.example.moviesearch
+package com.example.moviesearch.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
+import com.example.moviesearch.MainActivity
+import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.moviesearch.databinding.FragmentFavoritesBinding
-
+import com.example.moviesearch.domain.Film
+import com.example.moviesearch.utils.AnimationHelper
 
 
 class FavoritesFragment : Fragment() {
@@ -31,7 +35,7 @@ class FavoritesFragment : Fragment() {
         val favoritesList: List<Film> = emptyList()
 
         binding.favoritesRecycler.apply {
-            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
+            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                 override fun click(film: Film) {
                     (requireActivity() as MainActivity).launchDetailsFragment(film)
                 }
