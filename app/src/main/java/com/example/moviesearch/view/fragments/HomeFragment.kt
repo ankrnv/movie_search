@@ -10,8 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
-import com.example.moviesearch.MainActivity
-import com.example.moviesearch.R
+import com.example.moviesearch.view.MainActivity
 import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.moviesearch.databinding.FragmentHomeBinding
 import com.example.moviesearch.domain.Film

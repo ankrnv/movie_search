@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieSearch">
         <activity android:name=".view.fragments.DetailsFragment"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
