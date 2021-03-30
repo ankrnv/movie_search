@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit
 class App : Application() {
     lateinit var repo: MainRepository
     lateinit var interactor: Interactor
+    lateinit var retrofitService: TmdbApi
 
     override fun onCreate() {
         super.onCreate()
@@ -48,7 +49,7 @@ class App : Application() {
 //Инициализируем интерактор
         interactor = Interactor(repo, retrofitService)
         //Инициализируем интерактор
-        interactor = Interactor(repo)
+        interactor = Interactor(repo, retrofitService)
     }
 
     companion object {

@@ -1,5 +1,6 @@
 package com.example.moviesearch.data
 
+import com.example.moviesearch.data.Entity.TmdbResults
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
