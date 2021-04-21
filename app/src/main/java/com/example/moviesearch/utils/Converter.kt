@@ -4,7 +4,7 @@ import com.example.moviesearch.data.Entity.TmdbFilm
 import com.example.moviesearch.domain.Film
 
 object Converter {
-    fun convertApiListToDtoList(list: List<TmdbFilm>?): List<Film> {
+    fun convertApiListToDTOList(list: List<TmdbFilm>?): List<Film> {
         val result = mutableListOf<Film>()
         list?.forEach {
             result.add(

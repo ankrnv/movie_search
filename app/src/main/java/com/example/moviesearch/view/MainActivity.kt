@@ -7,11 +7,7 @@ import com.example.moviesearch.API
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMainBinding
 import com.example.moviesearch.domain.Film
-import com.example.moviesearch.view.fragments.DetailsFragment
-import com.example.moviesearch.view.fragments.FavoritesFragment
-import com.example.moviesearch.view.fragments.HomeFragment
-import com.example.moviesearch.view.fragments.SelectionsFragment
-import com.example.moviesearch.view.fragments.WatchLaterFragment
+import com.example.moviesearch.view.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,6 +78,12 @@ class MainActivity : AppCompatActivity() {
                     val tag = "selections"
                     val fragment = checkFragmentExistence(tag)
                     changeFragment( fragment?: SelectionsFragment(), tag)
+                    true
+                }
+                R.id.settings -> {
+                    val tag = "settings"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: SettingsFragment(), tag)
                     true
                 }
                 else -> false

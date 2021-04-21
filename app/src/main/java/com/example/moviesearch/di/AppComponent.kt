@@ -4,6 +4,7 @@ import com.amsdevelops.filmssearch.di.modules.DatabaseModule
 import com.amsdevelops.filmssearch.di.modules.DomainModule
 import com.amsdevelops.filmssearch.di.modules.RemoteModule
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
+import com.example.moviesearch.viewmodel.SettingsFragmentViewModel
 import dagger.Component
 import javax.inject.Singleton
 

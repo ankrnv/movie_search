@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/settings_fragment_root"
-    android:background="@drawable/ic_baseline_settings"
+    android:background="@drawable/background_settings"
     tools:context=".view.fragments.SettingsFragment">
 
     <RadioGroup
