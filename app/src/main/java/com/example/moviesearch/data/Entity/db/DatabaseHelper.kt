@@ -24,7 +24,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private  const val DATABASE_NAME = "films.db"
         private  const val DATABASE_VERSION = 1
 
-
         const val TABLE_NAME = "films_table"
         const val COLUMN_ID = "id"
         const val COLUMN_TITLE = "title"
