@@ -1,29 +1,33 @@
 package com.example.moviesearch.data.Entity.db
 
-import android.app.DownloadManager.*
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,  DATABASE_VERSION) {
+class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
+        //Создаем саму таблицу для фильмов
         db?.execSQL(
-            "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "CREATE TABLE $TABLE_NAME (" +
+                    "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "$COLUMN_TITLE TEXT UNIQUE," +
                     "$COLUMN_POSTER TEXT," +
                     "$COLUMN_DESCRIPTION TEXT," +
                     "$COLUMN_RATING REAL);"
         )
     }
-
+    //Миграций мы не предполагаем, поэтому метод пустой
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
     }
 
     companion object {
-        private  const val DATABASE_NAME = "films.db"
-        private  const val DATABASE_VERSION = 1
+        //Название самой БД
+        private const val DATABASE_NAME = "films.db"
+        //Версия БД
+        private const val DATABASE_VERSION = 1
 
+        //Константы для работы с таблицей, они на понадобятся в CRUD операциях и,
+        //возможно, в составлении запросов
         const val TABLE_NAME = "films_table"
         const val COLUMN_ID = "id"
         const val COLUMN_TITLE = "title"

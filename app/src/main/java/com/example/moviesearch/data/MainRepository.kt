@@ -7,11 +7,14 @@ import com.example.moviesearch.data.Entity.db.DatabaseHelper
 import com.example.moviesearch.domain.Film
 
 class MainRepository(databaseHelper: DatabaseHelper) {
-
+    //Инициализируем объект для взаимодействия с БД
     private val sqlDb = databaseHelper.readableDatabase
+    //Создаем курсор для обработки запросов из БД
     private lateinit var cursor: Cursor
 
     fun putToDb(film: Film) {
+        //Создаем объект, который будет хранить пары ключ-значение, для того
+        //чтобы класть нужные данные в нужные столбцы
         val cv = ContentValues()
         cv.apply {
             put(DatabaseHelper.COLUMN_TITLE, film.title)
@@ -19,10 +22,12 @@ class MainRepository(databaseHelper: DatabaseHelper) {
             put(DatabaseHelper.COLUMN_DESCRIPTION, film.description)
             put(DatabaseHelper.COLUMN_RATING, film.rating)
         }
+        //Кладем фильм в БД
         sqlDb.insert(DatabaseHelper.TABLE_NAME, null, cv)
     }
 
     fun getAllFromDB(): List<Film> {
+        //Создаем курсор на основании запроса "Получить все из таблицы"
         cursor = sqlDb.rawQuery("SELECT * FROM ${DatabaseHelper.TABLE_NAME}", null)
         //Сюда будем сохранять результат получения данных
         val result = mutableListOf<Film>()
@@ -41,6 +46,7 @@ class MainRepository(databaseHelper: DatabaseHelper) {
         //Возвращаем список фильмов
         return result
     }
+}
 
 //    val filmsDataBase = listOf(
 //        Film("Star Wars",
@@ -66,4 +72,3 @@ class MainRepository(databaseHelper: DatabaseHelper) {
 //        Film("Titanic",
 //            R.drawable.poster_11, "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.", 8.6f)
 //    )
-}
