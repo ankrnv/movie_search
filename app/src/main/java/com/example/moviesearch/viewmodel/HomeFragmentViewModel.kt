@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.example.moviesearch.App
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.domain.Interactor
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
@@ -26,7 +28,9 @@ class HomeFragmentViewModel : ViewModel() {
             }
 
             override fun onFailure() {
-                filmsListLiveData.postValue(interactor.getFilmsFromDB())
+                Executors.newSingleThreadExecutor().execute {
+                    filmsListLiveData.postValue(interactor.getFilmsFromDB())
+                }
             }
         })
     }
