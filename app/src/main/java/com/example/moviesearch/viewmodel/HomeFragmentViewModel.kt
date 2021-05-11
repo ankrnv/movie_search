@@ -3,9 +3,8 @@ package com.example.moviesearch.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviesearch.App
-import com.example.moviesearch.domain.Film
+import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.domain.Interactor
-import org.koin.core.KoinComponent
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {

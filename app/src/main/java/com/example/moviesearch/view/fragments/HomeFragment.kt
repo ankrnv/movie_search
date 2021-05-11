@@ -13,7 +13,7 @@ import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
 import com.example.moviesearch.view.MainActivity
 import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.moviesearch.databinding.FragmentHomeBinding
-import com.example.moviesearch.domain.Film
+import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.utils.AnimationHelper
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
 import java.util.*

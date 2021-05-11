@@ -2,9 +2,8 @@ package com.example.moviesearch.data
 
 import android.content.ContentValues
 import android.database.Cursor
-import com.example.moviesearch.R
 import com.example.moviesearch.data.Entity.db.DatabaseHelper
-import com.example.moviesearch.domain.Film
+import com.example.moviesearch.data.Entity.Film
 
 class MainRepository(databaseHelper: DatabaseHelper) {
     //Инициализируем объект для взаимодействия с БД
@@ -40,7 +39,14 @@ class MainRepository(databaseHelper: DatabaseHelper) {
                 val description = cursor.getString(3)
                 val rating = cursor.getDouble(4)
 
-                result.add(Film(title, poster, description, rating))
+                result.add(
+                    Film(
+                        title,
+                        poster,
+                        description,
+                        rating
+                    )
+                )
             } while (cursor.moveToNext())
         }
         //Возвращаем список фильмов
