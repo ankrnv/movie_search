@@ -2,10 +2,10 @@ package com.example.moviesearch.data
 
 import android.content.ContentValues
 import android.database.Cursor
-import com.example.moviesearch.data.Entity.db.DatabaseHelper
+import com.example.moviesearch.data.Entity.db.AppDatabase
 import com.example.moviesearch.data.Entity.Film
 
-class MainRepository(databaseHelper: DatabaseHelper) {
+class MainRepository(databaseHelper: AppDatabase) {
     //Инициализируем объект для взаимодействия с БД
     private val sqlDb = databaseHelper.readableDatabase
     //Создаем курсор для обработки запросов из БД
@@ -16,18 +16,18 @@ class MainRepository(databaseHelper: DatabaseHelper) {
         //чтобы класть нужные данные в нужные столбцы
         val cv = ContentValues()
         cv.apply {
-            put(DatabaseHelper.COLUMN_TITLE, film.title)
-            put(DatabaseHelper.COLUMN_POSTER, film.poster)
-            put(DatabaseHelper.COLUMN_DESCRIPTION, film.description)
-            put(DatabaseHelper.COLUMN_RATING, film.rating)
+            put(AppDatabase.COLUMN_TITLE, film.title)
+            put(AppDatabase.COLUMN_POSTER, film.poster)
+            put(AppDatabase.COLUMN_DESCRIPTION, film.description)
+            put(AppDatabase.COLUMN_RATING, film.rating)
         }
         //Кладем фильм в БД
-        sqlDb.insert(DatabaseHelper.TABLE_NAME, null, cv)
+        sqlDb.insert(AppDatabase.TABLE_NAME, null, cv)
     }
 
     fun getAllFromDB(): List<Film> {
         //Создаем курсор на основании запроса "Получить все из таблицы"
-        cursor = sqlDb.rawQuery("SELECT * FROM ${DatabaseHelper.TABLE_NAME}", null)
+        cursor = sqlDb.rawQuery("SELECT * FROM ${AppDatabase.TABLE_NAME}", null)
         //Сюда будем сохранять результат получения данных
         val result = mutableListOf<Film>()
         //Проверяем, есть ли хоть одна строка в ответе на запрос
