@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "cashed_films", indices = [Index(value = ["title"], unique = true)])
+@Entity(tableName = "cached_films", indices = [Index(value = ["title"], unique = true)])
 data class Film(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "title") val title: String,
