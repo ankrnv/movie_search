@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
 
+    val showProgressBar: MutableLiveData<Boolean> = MutableLiveData()
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
@@ -24,15 +25,14 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     fun getFilms() {
+        showProgressBar.postValue(true)
         interactor.getFilmsFromApi(1, object : ApiCallback {
-            override fun onSuccess(films: List<Film>) {
-
+            override fun onSuccess() {
+                showProgressBar.postValue(false)
             }
 
             override fun onFailure() {
-                Executors.newSingleThreadExecutor().execute {
-                    filmsListLiveData.postValue(interactor.getFilmsFromDB())
-                }
+                showProgressBar.postValue(false)
             }
         })
     }
