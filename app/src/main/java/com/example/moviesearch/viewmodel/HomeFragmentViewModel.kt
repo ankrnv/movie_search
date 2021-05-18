@@ -37,7 +37,7 @@ class HomeFragmentViewModel : ViewModel() {
 
 
     interface ApiCallback {
-        fun onSuccess(films: List<Film>)
+        fun onSuccess()
         fun onFailure()
     }
 }
