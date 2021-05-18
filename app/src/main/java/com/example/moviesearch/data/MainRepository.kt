@@ -2,6 +2,7 @@ package com.example.moviesearch.data
 
 import android.content.ContentValues
 import android.database.Cursor
+import androidx.lifecycle.LiveData
 import com.example.moviesearch.data.Entity.db.AppDatabase
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.data.Entity.dao.FilmDao
@@ -15,9 +16,7 @@ class MainRepository(private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): List<Film> {
-        return filmDao.getCachedFilms()
-    }
+    fun getAllFromDB(): LiveData<List<Film>> = filmDao.getCachedFilms()
 
 //    //Инициализируем объект для взаимодействия с БД
 //    private val sqlDb = databaseHelper.readableDatabase

@@ -1,5 +1,6 @@
 package com.example.moviesearch.domain
 
+import androidx.lifecycle.LiveData
 import com.example.moviesearch.API
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.data.Entity.TmdbResults
@@ -39,5 +40,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.geDefaultCategory()
 
-    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
+    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
 }
