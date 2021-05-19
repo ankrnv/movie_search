@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -65,13 +66,16 @@ class HomeFragment : Fragment() {
             filmsDataBase = it
             filmsAdapter.addItems(it)
         })
+        viewModel.showProgressBar.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.isVisible = it
+        })
     }
 
     private fun initPullToRefresh() {
         //Вешаем слушатель, чтобы вызвался pull to refresh
         binding.pullToRefresh.setOnRefreshListener {
             //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
-            filmsAdapter.items.clear()
+            filmsAdapter.clearRV()
             //Делаем новый запрос фильмов на сервер
             viewModel.getFilms()
             //Убираем крутящиеся колечко

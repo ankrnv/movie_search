@@ -37,7 +37,6 @@ class HomeFragmentViewModel : ViewModel() {
         })
     }
 
-
     interface ApiCallback {
         fun onSuccess()
         fun onFailure()
