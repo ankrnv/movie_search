@@ -19,7 +19,6 @@ import com.example.moviesearch.utils.AnimationHelper
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
 import java.util.*
 
-
 class HomeFragment : Fragment() {
 
     private val viewModel by lazy {
