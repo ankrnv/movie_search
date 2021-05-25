@@ -5,6 +5,28 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.DetailsFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/details_fab_download_wp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:borderWidth="0dp"
+        android:translationX="72dp"
+        android:backgroundTint="#1F92ED"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="left|bottom"
+        app:srcCompat="@drawable/ic_baseline_cloud_download_24"
+        app:tint="@android:color/white"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="invisible"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:translationZ="10dp"
+        app:layout_anchor="@id/details_fab_download_wp"
+        app:layout_anchorGravity="center"/>
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"

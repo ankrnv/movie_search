@@ -12,6 +12,9 @@
     <string name="radio_button_top_rated">Топ</string>
     <string name="radio_button_upcoming">Скоро</string>
     <string name="radio_button_playing">В кинотеатрах</string>
+    <string name="permission_storage">Нет разрешения. Пожалуйста, предоставьте разрешение</string>
+    <string name="downloaded_to_gallery">"Сохранено в галерею"</string>
+    <string name="open">В галерею</string>
     <string name="radio_group_header">Подборка на главном экране:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
