@@ -20,6 +20,7 @@ import com.example.moviesearch.R
 import com.example.moviesearch.data.ApiConstants
 import com.example.moviesearch.databinding.FragmentDetailsBinding
 import com.example.moviesearch.data.Entity.Film
+import com.example.moviesearch.viewmodel.DetailsFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 
@@ -27,6 +28,7 @@ class DetailsFragment : Fragment() {
     private lateinit var film: Film
     private lateinit var binding: FragmentDetailsBinding
     private val scope = CoroutineScope(Dispatchers.IO)
+    private val viewModel: DetailsFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,6 +69,9 @@ class DetailsFragment : Fragment() {
             startActivity(Intent.createChooser(intent, "Share To:"))
         }
 
+        binding.detailsFabDownloadWp.setOnClickListener {
+            performAsyncLoadOfPoster()
+        }
     }
 
     private fun setFilmsDetails() {
