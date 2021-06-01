@@ -9,6 +9,7 @@ import com.example.moviesearch.data.PreferenceProvider
 import com.example.moviesearch.data.TmdbApi
 import com.example.moviesearch.utils.Converter
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,5 +41,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.geDefaultCategory()
 
-    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
+    fun getFilmsFromDB(): Flow<List<Film>> = repo.getAllFromDB()
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.moviesearch.App
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.domain.Interactor
+import kotlinx.coroutines.flow.Flow
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import javax.inject.Inject
@@ -16,11 +17,12 @@ class HomeFragmentViewModel : ViewModel() {
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
-    val filmsListLiveData: LiveData<List<Film>>
+    val filmsListData: Flow<List<Film>>
 
     init {
         App.instance.dagger.inject(this)
-        filmsListLiveData = interactor.getFilmsFromDB()
+        filmsListData = interactor.getFilmsFromDB()
+
         getFilms()
     }
 
