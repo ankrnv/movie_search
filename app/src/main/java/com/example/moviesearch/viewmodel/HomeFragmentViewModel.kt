@@ -22,7 +22,6 @@ class HomeFragmentViewModel : ViewModel() {
     init {
         App.instance.dagger.inject(this)
         filmsListData = interactor.getFilmsFromDB()
-
         getFilms()
     }
 

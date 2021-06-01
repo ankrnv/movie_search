@@ -17,6 +17,8 @@ import com.example.moviesearch.databinding.FragmentHomeBinding
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.utils.AnimationHelper
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -26,7 +28,7 @@ class HomeFragment : Fragment() {
     }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
-
+    private lateinit var scope: CoroutineScope
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -61,10 +63,16 @@ class HomeFragment : Fragment() {
         //находим наш RV
         initRecyckler()
         //Кладем нашу БД в RV
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
-            filmsDataBase = it
-            filmsAdapter.addItems(it)
-        })
+        scope = CoroutineScope(Dispatchers.IO).also { scope ->
+            scope.launch {
+                viewModel.filmsListData.collect {
+                    withContext(Dispatchers.Main) {
+                        filmsAdapter.addItems(it)
+                        filmsDataBase = it
+                    }
+                }
+            }
+        }
         viewModel.showProgressBar.observe(viewLifecycleOwner, Observer {
             binding.progressBar.isVisible = it
         })
@@ -132,4 +140,8 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        scope.cancel()
+    }
 }
