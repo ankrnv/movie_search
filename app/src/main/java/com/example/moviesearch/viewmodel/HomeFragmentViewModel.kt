@@ -26,16 +26,7 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     fun getFilms() {
-        showProgressBar.postValue(true)
-        interactor.getFilmsFromApi(1, object : ApiCallback {
-            override fun onSuccess() {
-                showProgressBar.postValue(false)
-            }
-
-            override fun onFailure() {
-                showProgressBar.postValue(false)
-            }
-        })
+        interactor.getFilmsFromApi(1)
     }
 
     interface ApiCallback {
