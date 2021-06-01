@@ -90,4 +90,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
     implementation 'androidx.fragment:fragment-ktx:1.1.0'
+
 }
