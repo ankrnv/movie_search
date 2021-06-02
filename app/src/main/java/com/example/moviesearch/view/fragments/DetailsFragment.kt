@@ -15,12 +15,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.moviesearch.R
 import com.example.moviesearch.data.ApiConstants
-import com.example.moviesearch.databinding.FragmentDetailsBinding
 import com.example.moviesearch.data.Entity.Film
+import com.example.moviesearch.databinding.FragmentDetailsBinding
 import com.example.moviesearch.viewmodel.DetailsFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
@@ -29,7 +28,7 @@ class DetailsFragment : Fragment() {
     private lateinit var film: Film
     private lateinit var binding: FragmentDetailsBinding
     private val scope = CoroutineScope(Dispatchers.IO)
-    private val viewModel: DetailsFragmentViewModel by viewModels()
+    private val viewModel: DetailsFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

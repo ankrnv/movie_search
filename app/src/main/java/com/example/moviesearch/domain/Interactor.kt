@@ -18,10 +18,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-val scope: CoroutineScope = CoroutineScope(Dispatchers.IO)
-var progressBarState = Channel<Boolean>(Channel.CONFLATED)
-
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
+
+    val scope: CoroutineScope = CoroutineScope(Dispatchers.IO)
+    var progressBarState = Channel<Boolean>(Channel.CONFLATED)
+
     fun getFilmsFromApi(page: Int) {
         //Показываем ProgressBar
         scope.launch {

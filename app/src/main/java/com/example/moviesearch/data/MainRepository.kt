@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import com.example.moviesearch.data.Entity.db.AppDatabase
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.data.Entity.dao.FilmDao
+import kotlinx.coroutines.flow.Flow
 import java.util.concurrent.Executors
 
 class MainRepository(private val filmDao: FilmDao) {
@@ -16,7 +17,7 @@ class MainRepository(private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): LiveData<List<Film>> = filmDao.getCachedFilms()
+    fun getAllFromDB(): Flow<List<Film>> = filmDao.getCachedFilms()
 
 //    //Инициализируем объект для взаимодействия с БД
 //    private val sqlDb = databaseHelper.readableDatabase

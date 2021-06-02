@@ -8,7 +8,6 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 class DetailsFragmentViewModel : ViewModel() {
-
     suspend fun loadWallpaper(url: String): Bitmap {
         return suspendCoroutine {
             val url = URL(url)
