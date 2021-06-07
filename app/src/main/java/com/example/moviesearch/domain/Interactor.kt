@@ -35,6 +35,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 //Кладем фильмы в бд
                 //В случае успешного ответа кладем фильмы в БД и выключаем ProgressBar
                 scope.launch {
+                    repo.deleteAll()
                     repo.putToDb(list)
                     progressBarState.send(false)
                 }

@@ -12,12 +12,14 @@ import java.util.concurrent.Executors
 class MainRepository(private val filmDao: FilmDao) {
 
     fun putToDb(films: List<Film>) {
-        Executors.newSingleThreadExecutor().execute {
-            filmDao.insertAll(films)
-        }
+        filmDao.insertAll(films)
     }
 
     fun getAllFromDB(): Flow<List<Film>> = filmDao.getCachedFilms()
+
+    fun deleteAll() {
+        filmDao.deleteAll()
+    }
 
 //    //Инициализируем объект для взаимодействия с БД
 //    private val sqlDb = databaseHelper.readableDatabase

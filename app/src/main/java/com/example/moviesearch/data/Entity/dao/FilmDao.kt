@@ -1,10 +1,7 @@
 package com.example.moviesearch.data.Entity.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.moviesearch.data.Entity.Film
 import kotlinx.coroutines.flow.Flow
 
@@ -15,4 +12,7 @@ interface FilmDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(list: List<Film>)
+
+    @Query("DELETE FROM cached_films")
+    fun deleteAll()
 }
