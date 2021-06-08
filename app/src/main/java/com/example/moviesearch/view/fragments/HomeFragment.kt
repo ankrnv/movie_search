@@ -16,10 +16,10 @@ import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.moviesearch.databinding.FragmentHomeBinding
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.utils.AnimationHelper
+import com.example.moviesearch.utils.AutoDisposable
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 import java.util.*
@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
+    private val autoDisposable = AutoDisposable()
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var scope: CoroutineScope
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        autoDisposable.bindTo(lifecycle)
         retainInstance = true
     }
 
