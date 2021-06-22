@@ -1,17 +1,11 @@
 package com.example.moviesearch.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amsdevelops.filmssearch.domain.Interactor
 import com.example.moviesearch.App
 import com.example.moviesearch.data.Entity.Film
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
@@ -32,6 +26,8 @@ class HomeFragmentViewModel : ViewModel() {
     fun getFilms() {
         interactor.getFilmsFromApi(1)
     }
+
+    fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
 
     interface ApiCallback {
         fun onSuccess()
