@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
@@ -25,8 +24,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -35,18 +32,9 @@ class HomeFragment : Fragment() {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
     private val autoDisposable = AutoDisposable()
+
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
-    private var filmsDataBase = listOf<Film>()
-        //Используем backing field
-        set(value) {
-            //Если придет такое же значение то мы выходим из метода
-            if (field == value) return
-            //Если прило другое значение, то кладем его в переменную
-            field = value
-            //Обновляем RV адаптер
-            filmsAdapter.addItems(field)
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +66,6 @@ class HomeFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { list ->
                 filmsAdapter.addItems(list)
-                filmsDataBase = list
             }
             .addTo(autoDisposable)
         viewModel.showProgressBar
@@ -88,10 +75,6 @@ class HomeFragment : Fragment() {
                 binding.progressBar.isVisible = it
             }
             .addTo(autoDisposable)
-    }
-
-    override fun onStop() {
-        super.onStop()
     }
 
     private fun initPullToRefresh() {

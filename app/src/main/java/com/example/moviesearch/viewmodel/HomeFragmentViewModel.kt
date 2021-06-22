@@ -9,12 +9,11 @@ import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
-
-    val showProgressBar: BehaviorSubject<Boolean>
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
     val filmsListData: Observable<List<Film>>
+    val showProgressBar: BehaviorSubject<Boolean>
 
     init {
         App.instance.dagger.inject(this)
@@ -29,8 +28,4 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
 
-    interface ApiCallback {
-        fun onSuccess()
-        fun onFailure()
-    }
 }
