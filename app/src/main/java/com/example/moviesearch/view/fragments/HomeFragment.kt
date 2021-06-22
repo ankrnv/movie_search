@@ -32,7 +32,6 @@ class HomeFragment : Fragment() {
     private val autoDisposable = AutoDisposable()
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var scope: CoroutineScope
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -88,7 +87,6 @@ class HomeFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        scope.cancel()
     }
 
     private fun initPullToRefresh() {

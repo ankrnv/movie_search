@@ -3,9 +3,9 @@ package com.example.moviesearch.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.amsdevelops.filmssearch.domain.Interactor
 import com.example.moviesearch.App
 import com.example.moviesearch.data.Entity.Film
-import com.example.moviesearch.domain.Interactor
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import kotlinx.coroutines.channels.Channel
