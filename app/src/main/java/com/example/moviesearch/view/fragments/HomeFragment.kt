@@ -10,14 +10,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
-import com.example.moviesearch.view.MainActivity
-import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
-import com.example.moviesearch.databinding.FragmentHomeBinding
 import com.example.moviesearch.data.Entity.Film
+import com.example.moviesearch.databinding.FragmentHomeBinding
 import com.example.moviesearch.utils.AnimationHelper
 import com.example.moviesearch.utils.AutoDisposable
 import com.example.moviesearch.utils.addTo
+import com.example.moviesearch.view.MainActivity
+import com.example.moviesearch.view.rv_adapters.FilmListRecyclerAdapter
+import com.example.moviesearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -53,7 +53,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            binding.homeFragmentRoot,
+            requireActivity(),
+            1
+        )
 
         initSearchView()
         initPullToRefresh()
@@ -64,16 +68,27 @@ class HomeFragment : Fragment() {
         viewModel.filmsListData
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { list ->
-                filmsAdapter.addItems(list)
-            }
+            .subscribeBy(
+                onError = {
+                    Toast.makeText(requireContext(), "Что-то пошло не так ${it.localizedMessage}", Toast.LENGTH_SHORT)
+                        .show()
+                }, onNext = {
+                    filmsAdapter.addItems(it)
+                }
+            )
             .addTo(autoDisposable)
         viewModel.showProgressBar
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                binding.progressBar.isVisible = it
-            }
+            .subscribeBy(
+                onError = {
+                    Toast.makeText(requireContext(), "Что-то пошло не так ${it.localizedMessage}", Toast.LENGTH_SHORT)
+                        .show()
+                },
+                onNext = {
+                    binding.progressBar.isVisible = it
+                }
+            )
             .addTo(autoDisposable)
     }
 
@@ -104,6 +119,7 @@ class HomeFragment : Fragment() {
                     subscriber.onNext(newText)
                     return false
                 }
+
                 //Вызывается по нажатию кнопки "Поиск"
                 override fun onQueryTextSubmit(query: String): Boolean {
                     subscriber.onNext(query)
@@ -128,7 +144,8 @@ class HomeFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = {
-                    Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT)
+                        .show()
                 },
                 onNext = {
                     filmsAdapter.addItems(it)

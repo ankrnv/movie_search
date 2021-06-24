@@ -1,4 +1,4 @@
-package com.amsdevelops.filmssearch.domain
+package com.example.moviesearch.domain
 
 import com.example.moviesearch.API
 import com.example.moviesearch.data.Entity.Film

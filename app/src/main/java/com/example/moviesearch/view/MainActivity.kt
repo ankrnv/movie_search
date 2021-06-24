@@ -3,6 +3,7 @@ package com.example.moviesearch.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.moviesearch.view.fragments.HomeFragment
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMainBinding
 import com.example.moviesearch.data.Entity.Film

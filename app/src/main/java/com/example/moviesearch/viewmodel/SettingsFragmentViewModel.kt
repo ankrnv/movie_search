@@ -2,7 +2,7 @@ package com.amsdevelops.filmssearch.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amsdevelops.filmssearch.domain.Interactor
+import com.example.moviesearch.domain.Interactor
 import com.example.moviesearch.App
 import javax.inject.Inject
 
