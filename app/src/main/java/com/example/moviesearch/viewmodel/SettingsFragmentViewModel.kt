@@ -1,4 +1,4 @@
-package com.amsdevelops.filmssearch.viewmodel
+package com.example.moviesearch.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.amsdevelops.filmssearch.di.modules
+package com.example.moviesearch.di.modules
 
 import android.content.Context
 import androidx.room.Room

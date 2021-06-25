@@ -1,10 +1,10 @@
-package com.amsdevelops.filmssearch.di.modules
+package com.example.moviesearch.di.modules
 
 import android.content.Context
 import com.example.moviesearch.domain.Interactor
 import com.example.moviesearch.data.MainRepository
 import com.example.moviesearch.data.PreferenceProvider
-import com.example.moviesearch.data.TmdbApi
+import com.example.remote_module.TmdbApi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

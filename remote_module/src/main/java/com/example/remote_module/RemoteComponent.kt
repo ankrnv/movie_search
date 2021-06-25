@@ -1,4 +1,10 @@
 package com.example.remote_module
 
-interface RemoteComponent {
-}
+import dagger.Component
+import javax.inject.Singleton
+
+@Singleton
+@Component(
+    modules = [RemoteModule::class]
+)
+interface RemoteComponent : RemoteProvider

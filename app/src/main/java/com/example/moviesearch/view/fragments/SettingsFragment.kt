@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.amsdevelops.filmssearch.viewmodel.SettingsFragmentViewModel
+import com.example.moviesearch.viewmodel.SettingsFragmentViewModel
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.FragmentSettingsBinding
 import com.example.moviesearch.utils.AnimationHelper
