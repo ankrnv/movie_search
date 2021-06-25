@@ -2,10 +2,10 @@ package com.example.moviesearch.domain
 
 import com.example.moviesearch.API
 import com.example.moviesearch.data.Entity.Film
-import com.example.moviesearch.data.Entity.TmdbResults
+import com.example.remote_module.entity.TmdbResults
 import com.example.moviesearch.data.MainRepository
 import com.example.moviesearch.data.PreferenceProvider
-import com.example.moviesearch.data.TmdbApi
+import com.example.remote_module.TmdbApi
 import com.example.moviesearch.utils.Converter
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -21,25 +21,21 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     fun getFilmsFromApi(page: Int) {
         //Показываем ProgressBar
         progressBarState.onNext(true)
-        //Метод getDefaultCategoryFromPreferences() будет нам получать при каждом запросе нужный нам список фильмов
-        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page).enqueue(object : Callback<TmdbResults> {
-            override fun onResponse(call: Call<TmdbResults>, response: Response<TmdbResults>) {
-                val list = Converter.convertApiListToDTOList(response.body()?.tmdbFilms)
-                //Кладем фильмы в бд
-                //В случае успешного ответа кладем фильмы в БД и выключаем ProgressBar
-                Completable.fromSingle<List<Film>> {
-                    repo.putToDb(list)
+        //Метод getDefaultCategoryFromPreferences() будет получать при каждом запросе нужный нам список фильмов
+        retrofitService.getFilms(getDefaultCategoryFromPreferences(), API.KEY, "ru-RU", page)
+            .subscribeOn(Schedulers.io())
+            .map {
+                Converter.convertApiListToDTOList(it.tmdbFilms)
+            }
+            .subscribeBy(
+                onError = {
+                    progressBarState.onNext(false)
+                },
+                onNext = {
+                    progressBarState.onNext(false)
+                    repo.putToDb(it)
                 }
-                    .subscribeOn(Schedulers.io())
-                    .subscribe()
-                progressBarState.onNext(false)
-            }
-
-            override fun onFailure(call: Call<TmdbResults>, t: Throwable) {
-                //В случае провала выключаем ProgressBar
-                progressBarState.onNext(false)
-            }
-        })
+            )
     }
 
     fun getSearchResultFromApi(search: String): Observable<List<Film>> = retrofitService.getFilmFromSearch(API.KEY, "ru-RU", search, 1)
