@@ -18,10 +18,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.moviesearch.R
-import com.example.moviesearch.data.ApiConstants
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.databinding.FragmentDetailsBinding
 import com.example.moviesearch.viewmodel.DetailsFragmentViewModel
+import com.example.remote_module.entity.ApiConstants
 
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*

@@ -2,9 +2,10 @@ package com.example.moviesearch
 
 import android.app.Application
 import com.example.moviesearch.di.AppComponent
+import com.example.moviesearch.di.DaggerAppComponent
 import com.example.moviesearch.di.modules.DatabaseModule
 import com.example.moviesearch.di.modules.DomainModule
-import okhttp3.internal.Internal.instance
+import com.example.remote_module.DaggerRemoteComponent
 
 
 class App : Application() {

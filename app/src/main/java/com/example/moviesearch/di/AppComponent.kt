@@ -4,8 +4,10 @@ import com.example.moviesearch.di.modules.DatabaseModule
 import com.example.moviesearch.di.modules.DomainModule
 import com.example.moviesearch.viewmodel.HomeFragmentViewModel
 import com.example.moviesearch.viewmodel.SettingsFragmentViewModel
+import com.example.remote_module.RemoteProvider
 import dagger.Component
 import javax.inject.Singleton
+
 
 @Singleton
 @Component(

@@ -2,18 +2,14 @@ package com.example.moviesearch.domain
 
 import com.example.moviesearch.API
 import com.example.moviesearch.data.Entity.Film
-import com.example.remote_module.entity.TmdbResults
 import com.example.moviesearch.data.MainRepository
 import com.example.moviesearch.data.PreferenceProvider
-import com.example.remote_module.TmdbApi
 import com.example.moviesearch.utils.Converter
-import io.reactivex.rxjava3.core.Completable
+import com.example.remote_module.TmdbApi
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
