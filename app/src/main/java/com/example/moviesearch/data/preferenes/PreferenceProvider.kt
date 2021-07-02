@@ -1,4 +1,4 @@
-package com.example.moviesearch.data
+package com.example.moviesearch.data.preferenes
 
 import android.content.Context
 import android.content.SharedPreferences

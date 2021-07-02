@@ -3,12 +3,15 @@ package com.example.moviesearch.domain
 import com.example.moviesearch.API
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.data.MainRepository
-import com.example.moviesearch.data.PreferenceProvider
+import com.example.moviesearch.data.preferenes.PreferenceProvider
 import com.example.moviesearch.utils.Converter
 import com.example.remote_module.TmdbApi
+
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.kotlin.subscribeBy
+
 
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
