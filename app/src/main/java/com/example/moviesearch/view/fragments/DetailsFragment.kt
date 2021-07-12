@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.example.moviesearch.R
 import com.example.moviesearch.data.Entity.Film
 import com.example.moviesearch.databinding.FragmentDetailsBinding
+import com.example.moviesearch.view.notifications.NotificationHelper
 import com.example.moviesearch.viewmodel.DetailsFragmentViewModel
 import com.example.remote_module.entity.ApiConstants
 
@@ -72,6 +73,10 @@ class DetailsFragment : Fragment() {
 
         binding.detailsFabDownloadWp.setOnClickListener {
             performAsyncLoadOfPoster()
+        }
+
+        binding.detailsFabWatchLater.setOnClickListener {
+            NotificationHelper.createNotification(requireContext(), film)
         }
     }
 
