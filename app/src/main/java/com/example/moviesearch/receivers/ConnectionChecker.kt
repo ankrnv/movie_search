@@ -7,6 +7,7 @@ import android.widget.Toast
 
 class ConnectionChecker : BroadcastReceiver() {
 
+
     override fun onReceive(context: Context?, intent: Intent?) {
         //Если интента нет, то выходим из метода
         if (intent == null) return
