@@ -9,7 +9,22 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    flavorDimensions "version"
+
     apply from: "$project.rootDir/versions.gradle"
+
+    productFlavors {
+        basic {
+            dimension "version"
+            applicationIdSuffix ".basic"
+            versionNameSuffix "-basic"
+        }
+        pro {
+            dimension "version"
+            applicationIdSuffix ".pro"
+            versionNameSuffix "-pro"
+        }
+    }
 
     buildFeatures {
         viewBinding true
