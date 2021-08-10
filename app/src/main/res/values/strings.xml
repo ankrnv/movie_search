@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Movie Search</string>
+    <string name="menu_settings_title">MENU</string>
+    <string name="menu_sett_title">SETTINGS</string>
+    <string name="menu_watch_later_title">WATCH LATER</string>
+    <string name="menu_selections_title">LISTS</string>
+    <string name="menu_favorites_title">FAVOURITE</string>
+    <string name="page_title">Search it!</string>
+    <string name="menu_home_title_text">HOME</string>
+    <string name="menu_settings_title_text">Настройки</string>
+    <string name="radio_button_popular">Популярные</string>
+    <string name="radio_button_top_rated">Топ</string>
+    <string name="radio_button_upcoming">Скоро</string>
+    <string name="radio_button_playing">В кинотеатрах</string>
+    <string name="permission_storage">Нет разрешения. Пожалуйста, предоставьте разрешение</string>
+    <string name="downloaded_to_gallery">"Сохранено в галерею"</string>
+    <string name="open">В галерею</string>
+    <string name="radio_group_header">Подборка на главном экране:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
