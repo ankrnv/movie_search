@@ -1,2 +1,3 @@
+include ':remote_module'
 include ':app'
 rootProject.name = "Movie Search"
